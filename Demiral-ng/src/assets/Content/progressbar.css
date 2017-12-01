@@ -1,0 +1,25 @@
+@keyframes example {
+    0%   {width: 20%;}
+    25%  {width: 50%;}
+    50%  {width: 150%;}
+    75%  {width: 200%;}
+    99% {width: 500%;}
+    99% {display:none}
+}
+.progress {
+    width: 500%;
+    height: 100px;
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+        animation-iteration-count: 1;
+        right:0px;
+}
+
+.progress{
+
+}
+@keyframes blueexample {
+    0%   {width: 50%;}
+    100% {width: 500%;}
+}

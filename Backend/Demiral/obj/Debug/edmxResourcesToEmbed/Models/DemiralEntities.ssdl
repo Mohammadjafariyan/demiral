@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemiralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Type" Type="int" />
+    <Property Name="InformationId" Type="int" />
+    <Property Name="RFQId" Type="int" />
+  </EntityType>
+  <EntityType Name="Buy_Sell">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyerId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Buyer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="Row" Type="int" />
+    <Property Name="InMyMarkets" Type="bit" />
+  </EntityType>
+  <EntityType Name="Chat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BuyerId" Type="int" />
+    <Property Name="SellerId" Type="int" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="int" />
+    <Property Name="Email" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Information">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="BuyerId" Type="int" />
+    <Property Name="SellerId" Type="int" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Text" Type="nvarchar(max)" />
+    <Property Name="SysName" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="cost" Type="money" />
+  </EntityType>
+  <EntityType Name="PossibleValue">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="SpecificationId" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ProdcutTypeId" Type="int" />
+    <Property Name="ShopId" Type="int" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="CategoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="RFQ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ProductTypeId" Type="int" />
+    <Property Name="BuyerId" Type="int" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Value">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Attach_Information">
+    <End Role="Information" Type="Self.Information" Multiplicity="0..1" />
+    <End Role="Attach" Type="Self.Attach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Information">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attach">
+        <PropertyRef Name="InformationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attach_RFQ">
+    <End Role="RFQ" Type="Self.RFQ" Multiplicity="0..1" />
+    <End Role="Attach" Type="Self.Attach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RFQ">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attach">
+        <PropertyRef Name="RFQId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Buy_Sell_Buyer">
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+    <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buy_Sell">
+        <PropertyRef Name="BuyerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Buy_Sell_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buy_Sell">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Buyer_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chat_Buyer">
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+    <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="BuyerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chat_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chat_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+    <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Information_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Information" Type="Self.Information" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Information">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Buyer">
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="BuyerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Buy_Sell">
+    <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Buy_Sell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PossibleValue_Specification">
+    <End Role="Specification" Type="Self.Specification" Multiplicity="0..1" />
+    <End Role="PossibleValue" Type="Self.PossibleValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PossibleValue">
+        <PropertyRef Name="SpecificationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductType">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProdcutTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Shop">
+    <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductType_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductType">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RFQ_Buyer">
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+    <End Role="RFQ" Type="Self.RFQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RFQ">
+        <PropertyRef Name="BuyerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RFQ_ProductType">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+    <End Role="RFQ" Type="Self.RFQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RFQ">
+        <PropertyRef Name="ProductTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seller_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="1" />
+    <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shop">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Specification_ProductType">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="1" />
+    <End Role="Specification" Type="Self.Specification" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Specification">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Value_PossibleValue">
+    <End Role="PossibleValue" Type="Self.PossibleValue" Multiplicity="1" />
+    <End Role="Value" Type="Self.Value" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PossibleValue">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Value">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Value_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Value" Type="Self.Value" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Value">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemiralModelStoreContainer">
+    <EntitySet Name="Attach" EntityType="Self.Attach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buy_Sell" EntityType="Self.Buy_Sell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buyer" EntityType="Self.Buyer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PossibleValue" EntityType="Self.PossibleValue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RFQ" EntityType="Self.RFQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seller" EntityType="Self.Seller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specification" EntityType="Self.Specification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Value" EntityType="Self.Value" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Attach_Information" Association="Self.FK_Attach_Information">
+      <End Role="Information" EntitySet="Information" />
+      <End Role="Attach" EntitySet="Attach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attach_RFQ" Association="Self.FK_Attach_RFQ">
+      <End Role="RFQ" EntitySet="RFQ" />
+      <End Role="Attach" EntitySet="Attach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Buy_Sell_Buyer" Association="Self.FK_Buy_Sell_Buyer">
+      <End Role="Buyer" EntitySet="Buyer" />
+      <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Buy_Sell_Product" Association="Self.FK_Buy_Sell_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Buyer_Customer" Association="Self.FK_Buyer_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Buyer" EntitySet="Buyer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Category" Association="Self.FK_Category_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Category1" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chat_Buyer" Association="Self.FK_Chat_Buyer">
+      <End Role="Buyer" EntitySet="Buyer" />
+      <End Role="Chat" EntitySet="Chat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chat_Order" Association="Self.FK_Chat_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Chat" EntitySet="Chat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chat_Seller" Association="Self.FK_Chat_Seller">
+      <End Role="Seller" EntitySet="Seller" />
+      <End Role="Chat" EntitySet="Chat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Information_Product" Association="Self.FK_Information_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Information" EntitySet="Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Buyer" Association="Self.FK_Order_Buyer">
+      <End Role="Buyer" EntitySet="Buyer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Seller" Association="Self.FK_Order_Seller">
+      <End Role="Seller" EntitySet="Seller" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Buy_Sell" Association="Self.FK_Payment_Buy_Sell">
+      <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Order" Association="Self.FK_Payment_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PossibleValue_Specification" Association="Self.FK_PossibleValue_Specification">
+      <End Role="Specification" EntitySet="Specification" />
+      <End Role="PossibleValue" EntitySet="PossibleValue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Shop" Association="Self.FK_Product_Shop">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductType_Category" Association="Self.FK_ProductType_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ProductType" EntitySet="ProductType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RFQ_Buyer" Association="Self.FK_RFQ_Buyer">
+      <End Role="Buyer" EntitySet="Buyer" />
+      <End Role="RFQ" EntitySet="RFQ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RFQ_ProductType" Association="Self.FK_RFQ_ProductType">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="RFQ" EntitySet="RFQ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seller_Customer" Association="Self.FK_Seller_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Seller" EntitySet="Seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Seller" Association="Self.FK_Shop_Seller">
+      <End Role="Seller" EntitySet="Seller" />
+      <End Role="Shop" EntitySet="Shop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Specification_ProductType" Association="Self.FK_Specification_ProductType">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="Specification" EntitySet="Specification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Value_PossibleValue" Association="Self.FK_Value_PossibleValue">
+      <End Role="PossibleValue" EntitySet="PossibleValue" />
+      <End Role="Value" EntitySet="Value" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Value_Product" Association="Self.FK_Value_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Value" EntitySet="Value" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

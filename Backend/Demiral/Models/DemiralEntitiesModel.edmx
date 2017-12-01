@@ -1,0 +1,1904 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DemiralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" />
+          <Property Name="InformationId" Type="int" />
+          <Property Name="RFQId" Type="int" />
+        </EntityType>
+        <EntityType Name="Buy_Sell">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuyerId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Row" Type="int" />
+          <Property Name="InMyMarkets" Type="bit" />
+          <Property Name="Icon" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="onHoverIcon" Type="nvarchar(max)" />
+          <Property Name="IsLeaf" Type="bit" />
+          <Property Name="template" Type="nvarchar(max)" />
+          <Property Name="QuantityUnitId" Type="int" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BuyerId" Type="int" />
+          <Property Name="SellerId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="int" />
+          <Property Name="Email" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="RFQId" Type="int" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="BuyerId" Type="int" />
+          <Property Name="SellerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="SysName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="cost" Type="money" />
+        </EntityType>
+        <EntityType Name="PossibleValue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="SpecificationId" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="ShopId" Type="int" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="ImageId" Type="int" />
+        </EntityType>
+        <EntityType Name="QuantityUnit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RFQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="BuyerId" Type="int" />
+          <Property Name="ExtraQoutes" Type="bit" />
+          <Property Name="UrgentRequest" Type="bit" />
+          <Property Name="Unit" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Pices" Type="int" />
+          <Property Name="PreferedUnitPrice" Type="money" />
+          <Property Name="ShippingMethod" Type="int" />
+          <Property Name="UnitPrice" Type="int" />
+          <Property Name="DestinationPort" Type="nvarchar" MaxLength="50" />
+          <Property Name="Insurance" Type="int" />
+        </EntityType>
+        <EntityType Name="Seller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Value">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Attach_Information">
+          <End Role="Information" Type="Self.Information" Multiplicity="0..1" />
+          <End Role="Attach" Type="Self.Attach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Information">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attach">
+              <PropertyRef Name="InformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attach_RFQ">
+          <End Role="RFQ" Type="Self.RFQ" Multiplicity="0..1" />
+          <End Role="Attach" Type="Self.Attach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFQ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attach">
+              <PropertyRef Name="RFQId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buy_Sell_Buyer">
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buy_Sell_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buyer_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_QuantityUnit">
+          <End Role="QuantityUnit" Type="Self.QuantityUnit" Multiplicity="0..1" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuantityUnit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="QuantityUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Buyer">
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Seller">
+          <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="SellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_RFQ">
+          <End Role="RFQ" Type="Self.RFQ" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFQ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="RFQId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Information_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Information" Type="Self.Information" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Information">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Buyer">
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Seller">
+          <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="SellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Buy_Sell">
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Buy_Sell">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PossibleValue_Specification">
+          <End Role="Specification" Type="Self.Specification" Multiplicity="0..1" />
+          <End Role="PossibleValue" Type="Self.PossibleValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PossibleValue">
+              <PropertyRef Name="SpecificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RFQ_Buyer">
+          <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+          <End Role="RFQ" Type="Self.RFQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RFQ">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RFQ_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="RFQ" Type="Self.RFQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RFQ">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seller_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Seller">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Seller">
+          <End Role="Seller" Type="Self.Seller" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Value_PossibleValue">
+          <End Role="PossibleValue" Type="Self.PossibleValue" Multiplicity="1" />
+          <End Role="Value" Type="Self.Value" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PossibleValue">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Value">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Value_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Value" Type="Self.Value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Value">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Rfq_Search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="searchTerm" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DemiralModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attach" EntityType="Self.Attach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buy_Sell" EntityType="Self.Buy_Sell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buyer" EntityType="Self.Buyer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PossibleValue" EntityType="Self.PossibleValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuantityUnit" EntityType="Self.QuantityUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFQ" EntityType="Self.RFQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seller" EntityType="Self.Seller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specification" EntityType="Self.Specification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Value" EntityType="Self.Value" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attach_Information" Association="Self.FK_Attach_Information">
+            <End Role="Information" EntitySet="Information" />
+            <End Role="Attach" EntitySet="Attach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attach_RFQ" Association="Self.FK_Attach_RFQ">
+            <End Role="RFQ" EntitySet="RFQ" />
+            <End Role="Attach" EntitySet="Attach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buy_Sell_Buyer" Association="Self.FK_Buy_Sell_Buyer">
+            <End Role="Buyer" EntitySet="Buyer" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buy_Sell_Product" Association="Self.FK_Buy_Sell_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buyer_Customer" Association="Self.FK_Buyer_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Buyer" EntitySet="Buyer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Category" Association="Self.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_QuantityUnit" Association="Self.FK_Category_QuantityUnit">
+            <End Role="QuantityUnit" EntitySet="QuantityUnit" />
+            <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Buyer" Association="Self.FK_Chat_Buyer">
+            <End Role="Buyer" EntitySet="Buyer" />
+            <End Role="Chat" EntitySet="Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Order" Association="Self.FK_Chat_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Chat" EntitySet="Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Seller" Association="Self.FK_Chat_Seller">
+            <End Role="Seller" EntitySet="Seller" />
+            <End Role="Chat" EntitySet="Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_RFQ" Association="Self.FK_Image_RFQ">
+            <End Role="RFQ" EntitySet="RFQ" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Information_Product" Association="Self.FK_Information_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Buyer" Association="Self.FK_Order_Buyer">
+            <End Role="Buyer" EntitySet="Buyer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Seller" Association="Self.FK_Order_Seller">
+            <End Role="Seller" EntitySet="Seller" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Buy_Sell" Association="Self.FK_Payment_Buy_Sell">
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Order" Association="Self.FK_Payment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PossibleValue_Specification" Association="Self.FK_PossibleValue_Specification">
+            <End Role="Specification" EntitySet="Specification" />
+            <End Role="PossibleValue" EntitySet="PossibleValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Shop" Association="Self.FK_Product_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RFQ_Buyer" Association="Self.FK_RFQ_Buyer">
+            <End Role="Buyer" EntitySet="Buyer" />
+            <End Role="RFQ" EntitySet="RFQ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RFQ_Category" Association="Self.FK_RFQ_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="RFQ" EntitySet="RFQ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seller_Customer" Association="Self.FK_Seller_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Seller" EntitySet="Seller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Seller" Association="Self.FK_Shop_Seller">
+            <End Role="Seller" EntitySet="Seller" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_Category" Association="Self.FK_Specification_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Value_PossibleValue" Association="Self.FK_Value_PossibleValue">
+            <End Role="PossibleValue" EntitySet="PossibleValue" />
+            <End Role="Value" EntitySet="Value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Value_Product" Association="Self.FK_Value_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Value" EntitySet="Value" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DemiralModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DemiralEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="DemiralModel.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="DemiralModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="DemiralModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="DemiralModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="DemiralModel.AspNetUser" />
+          <EntitySet Name="Attaches" EntityType="DemiralModel.Attach" />
+          <EntitySet Name="Buy_Sell" EntityType="DemiralModel.Buy_Sell" />
+          <EntitySet Name="Buyers" EntityType="DemiralModel.Buyer" />
+          <EntitySet Name="Categories" EntityType="DemiralModel.Category" />
+          <EntitySet Name="Chats" EntityType="DemiralModel.Chat" />
+          <EntitySet Name="Customers" EntityType="DemiralModel.Customer" />
+          <EntitySet Name="Images" EntityType="DemiralModel.Image" />
+          <EntitySet Name="Information" EntityType="DemiralModel.Information" />
+          <EntitySet Name="Orders" EntityType="DemiralModel.Order" />
+          <EntitySet Name="Pages" EntityType="DemiralModel.Page" />
+          <EntitySet Name="Payments" EntityType="DemiralModel.Payment" />
+          <EntitySet Name="PossibleValues" EntityType="DemiralModel.PossibleValue" />
+          <EntitySet Name="Products" EntityType="DemiralModel.Product" />
+          <EntitySet Name="RFQs" EntityType="DemiralModel.RFQ" />
+          <EntitySet Name="Sellers" EntityType="DemiralModel.Seller" />
+          <EntitySet Name="Shops" EntityType="DemiralModel.Shop" />
+          <EntitySet Name="Specifications" EntityType="DemiralModel.Specification" />
+          <EntitySet Name="sysdiagrams" EntityType="DemiralModel.sysdiagram" />
+          <EntitySet Name="Values" EntityType="DemiralModel.Value" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="DemiralModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="DemiralModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attach_Information" Association="DemiralModel.FK_Attach_Information">
+            <End Role="Information" EntitySet="Information" />
+            <End Role="Attach" EntitySet="Attaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attach_RFQ" Association="DemiralModel.FK_Attach_RFQ">
+            <End Role="RFQ" EntitySet="RFQs" />
+            <End Role="Attach" EntitySet="Attaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buy_Sell_Buyer" Association="DemiralModel.FK_Buy_Sell_Buyer">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buy_Sell_Product" Association="DemiralModel.FK_Buy_Sell_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Buy_Sell" Association="DemiralModel.FK_Payment_Buy_Sell">
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buyer_Customer" Association="DemiralModel.FK_Buyer_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Buyer" EntitySet="Buyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Buyer" Association="DemiralModel.FK_Chat_Buyer">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="Chat" EntitySet="Chats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Buyer" Association="DemiralModel.FK_Order_Buyer">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RFQ_Buyer" Association="DemiralModel.FK_RFQ_Buyer">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="RFQ" EntitySet="RFQs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Category" Association="DemiralModel.FK_Category_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Category1" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="DemiralModel.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RFQ_Category" Association="DemiralModel.FK_RFQ_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="RFQ" EntitySet="RFQs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_Category" Association="DemiralModel.FK_Specification_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Specification" EntitySet="Specifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Order" Association="DemiralModel.FK_Chat_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Chat" EntitySet="Chats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Seller" Association="DemiralModel.FK_Chat_Seller">
+            <End Role="Seller" EntitySet="Sellers" />
+            <End Role="Chat" EntitySet="Chats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seller_Customer" Association="DemiralModel.FK_Seller_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Seller" EntitySet="Sellers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_RFQ" Association="DemiralModel.FK_Image_RFQ">
+            <End Role="RFQ" EntitySet="RFQs" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Information_Product" Association="DemiralModel.FK_Information_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product" Association="DemiralModel.FK_Order_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Seller" Association="DemiralModel.FK_Order_Seller">
+            <End Role="Seller" EntitySet="Sellers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Order" Association="DemiralModel.FK_Payment_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PossibleValue_Specification" Association="DemiralModel.FK_PossibleValue_Specification">
+            <End Role="Specification" EntitySet="Specifications" />
+            <End Role="PossibleValue" EntitySet="PossibleValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Value_PossibleValue" Association="DemiralModel.FK_Value_PossibleValue">
+            <End Role="PossibleValue" EntitySet="PossibleValues" />
+            <End Role="Value" EntitySet="Values" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Shop" Association="DemiralModel.FK_Product_Shop">
+            <End Role="Shop" EntitySet="Shops" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Value_Product" Association="DemiralModel.FK_Value_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Value" EntitySet="Values" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Seller" Association="DemiralModel.FK_Shop_Seller">
+            <End Role="Seller" EntitySet="Sellers" />
+            <End Role="Shop" EntitySet="Shops" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="DemiralModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="Rfq_Search" ReturnType="Collection(DemiralModel.Rfq_Search_Result)">
+          <Parameter Name="searchTerm" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="QuantityUnits" EntityType="DemiralModel.QuantityUnit" />
+          <AssociationSet Name="FK_Category_QuantityUnit" Association="DemiralModel.FK_Category_QuantityUnit">
+            <End Role="QuantityUnit" EntitySet="QuantityUnits" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DemiralModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DemiralModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DemiralModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="DemiralModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="DemiralModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="DemiralModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="Attach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="InformationId" Type="Int32" />
+          <Property Name="RFQId" Type="Int32" />
+          <NavigationProperty Name="Information" Relationship="DemiralModel.FK_Attach_Information" FromRole="Attach" ToRole="Information" />
+          <NavigationProperty Name="RFQ" Relationship="DemiralModel.FK_Attach_RFQ" FromRole="Attach" ToRole="RFQ" />
+        </EntityType>
+        <EntityType Name="Buy_Sell">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuyerId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Buyer" Relationship="DemiralModel.FK_Buy_Sell_Buyer" FromRole="Buy_Sell" ToRole="Buyer" />
+          <NavigationProperty Name="Product" Relationship="DemiralModel.FK_Buy_Sell_Product" FromRole="Buy_Sell" ToRole="Product" />
+          <NavigationProperty Name="Payment" Relationship="DemiralModel.FK_Payment_Buy_Sell" FromRole="Buy_Sell" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Buy_Sell" Relationship="DemiralModel.FK_Buy_Sell_Buyer" FromRole="Buyer" ToRole="Buy_Sell" />
+          <NavigationProperty Name="Customer" Relationship="DemiralModel.FK_Buyer_Customer" FromRole="Buyer" ToRole="Customer" />
+          <NavigationProperty Name="Chats" Relationship="DemiralModel.FK_Chat_Buyer" FromRole="Buyer" ToRole="Chat" />
+          <NavigationProperty Name="Orders" Relationship="DemiralModel.FK_Order_Buyer" FromRole="Buyer" ToRole="Order" />
+          <NavigationProperty Name="RFQs" Relationship="DemiralModel.FK_RFQ_Buyer" FromRole="Buyer" ToRole="RFQ" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Row" Type="Int32" />
+          <Property Name="InMyMarkets" Type="Boolean" />
+          <Property Name="Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="onHoverIcon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsLeaf" Type="Boolean" />
+          <NavigationProperty Name="Category1" Relationship="DemiralModel.FK_Category_Category" FromRole="Category" ToRole="Category1" />
+          <NavigationProperty Name="Category2" Relationship="DemiralModel.FK_Category_Category" FromRole="Category1" ToRole="Category" />
+          <NavigationProperty Name="Products" Relationship="DemiralModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="RFQs" Relationship="DemiralModel.FK_RFQ_Category" FromRole="Category" ToRole="RFQ" />
+          <NavigationProperty Name="Specification" Relationship="DemiralModel.FK_Specification_Category" FromRole="Category" ToRole="Specification" />
+          <Property Name="template" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuantityUnitId" Type="Int32" />
+          <NavigationProperty Name="QuantityUnit" Relationship="DemiralModel.FK_Category_QuantityUnit" FromRole="Category" ToRole="QuantityUnit" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BuyerId" Type="Int32" />
+          <Property Name="SellerId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <NavigationProperty Name="Buyer" Relationship="DemiralModel.FK_Chat_Buyer" FromRole="Chat" ToRole="Buyer" />
+          <NavigationProperty Name="Order" Relationship="DemiralModel.FK_Chat_Order" FromRole="Chat" ToRole="Order" />
+          <NavigationProperty Name="Seller" Relationship="DemiralModel.FK_Chat_Seller" FromRole="Chat" ToRole="Seller" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Buyer" Relationship="DemiralModel.FK_Buyer_Customer" FromRole="Customer" ToRole="Buyer" />
+          <NavigationProperty Name="Seller" Relationship="DemiralModel.FK_Seller_Customer" FromRole="Customer" ToRole="Seller" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RFQId" Type="Int32" />
+          <NavigationProperty Name="RFQ" Relationship="DemiralModel.FK_Image_RFQ" FromRole="Image" ToRole="RFQ" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attaches" Relationship="DemiralModel.FK_Attach_Information" FromRole="Information" ToRole="Attach" />
+          <NavigationProperty Name="Product" Relationship="DemiralModel.FK_Information_Product" FromRole="Information" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="BuyerId" Type="Int32" />
+          <Property Name="SellerId" Type="Int32" />
+          <NavigationProperty Name="Buyer" Relationship="DemiralModel.FK_Order_Buyer" FromRole="Order" ToRole="Buyer" />
+          <NavigationProperty Name="Chats" Relationship="DemiralModel.FK_Chat_Order" FromRole="Order" ToRole="Chat" />
+          <NavigationProperty Name="Product" Relationship="DemiralModel.FK_Order_Product" FromRole="Order" ToRole="Product" />
+          <NavigationProperty Name="Seller" Relationship="DemiralModel.FK_Order_Seller" FromRole="Order" ToRole="Seller" />
+          <NavigationProperty Name="Payment" Relationship="DemiralModel.FK_Payment_Order" FromRole="Order" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SysName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Buy_Sell" Relationship="DemiralModel.FK_Payment_Buy_Sell" FromRole="Payment" ToRole="Buy_Sell" />
+          <NavigationProperty Name="Order" Relationship="DemiralModel.FK_Payment_Order" FromRole="Payment" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="PossibleValue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecificationId" Type="Int32" />
+          <NavigationProperty Name="Specification" Relationship="DemiralModel.FK_PossibleValue_Specification" FromRole="PossibleValue" ToRole="Specification" />
+          <NavigationProperty Name="Value1" Relationship="DemiralModel.FK_Value_PossibleValue" FromRole="PossibleValue" ToRole="Value" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="ShopId" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageId" Type="Int32" />
+          <NavigationProperty Name="Buy_Sell" Relationship="DemiralModel.FK_Buy_Sell_Product" FromRole="Product" ToRole="Buy_Sell" />
+          <NavigationProperty Name="Category" Relationship="DemiralModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Information" Relationship="DemiralModel.FK_Information_Product" FromRole="Product" ToRole="Information" />
+          <NavigationProperty Name="Order" Relationship="DemiralModel.FK_Order_Product" FromRole="Product" ToRole="Order" />
+          <NavigationProperty Name="Shop" Relationship="DemiralModel.FK_Product_Shop" FromRole="Product" ToRole="Shop" />
+          <NavigationProperty Name="Values" Relationship="DemiralModel.FK_Value_Product" FromRole="Product" ToRole="Value" />
+        </EntityType>
+        <EntityType Name="RFQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="BuyerId" Type="Int32" />
+          <Property Name="ExtraQoutes" Type="Boolean" />
+          <Property Name="UrgentRequest" Type="Boolean" />
+          <Property Name="Unit" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pices" Type="Int32" />
+          <Property Name="PreferedUnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ShippingMethod" Type="Int32" />
+          <Property Name="UnitPrice" Type="Int32" />
+          <Property Name="DestinationPort" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Insurance" Type="Int32" />
+          <NavigationProperty Name="Attaches" Relationship="DemiralModel.FK_Attach_RFQ" FromRole="RFQ" ToRole="Attach" />
+          <NavigationProperty Name="Buyer" Relationship="DemiralModel.FK_RFQ_Buyer" FromRole="RFQ" ToRole="Buyer" />
+          <NavigationProperty Name="Category" Relationship="DemiralModel.FK_RFQ_Category" FromRole="RFQ" ToRole="Category" />
+          <NavigationProperty Name="Images" Relationship="DemiralModel.FK_Image_RFQ" FromRole="RFQ" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Seller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" />
+          <NavigationProperty Name="Chats" Relationship="DemiralModel.FK_Chat_Seller" FromRole="Seller" ToRole="Chat" />
+          <NavigationProperty Name="Customer" Relationship="DemiralModel.FK_Seller_Customer" FromRole="Seller" ToRole="Customer" />
+          <NavigationProperty Name="Orders" Relationship="DemiralModel.FK_Order_Seller" FromRole="Seller" ToRole="Order" />
+          <NavigationProperty Name="Shop" Relationship="DemiralModel.FK_Shop_Seller" FromRole="Seller" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="DemiralModel.FK_Product_Shop" FromRole="Shop" ToRole="Product" />
+          <NavigationProperty Name="Seller" Relationship="DemiralModel.FK_Shop_Seller" FromRole="Shop" ToRole="Seller" />
+        </EntityType>
+        <EntityType Name="Specification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="DemiralModel.FK_Specification_Category" FromRole="Specification" ToRole="Category" />
+          <NavigationProperty Name="PossibleValues" Relationship="DemiralModel.FK_PossibleValue_Specification" FromRole="Specification" ToRole="PossibleValue" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Value">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <NavigationProperty Name="PossibleValue" Relationship="DemiralModel.FK_Value_PossibleValue" FromRole="Value" ToRole="PossibleValue" />
+          <NavigationProperty Name="Product" Relationship="DemiralModel.FK_Value_Product" FromRole="Value" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="DemiralModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DemiralModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="DemiralModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DemiralModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attach_Information">
+          <End Type="DemiralModel.Information" Role="Information" Multiplicity="0..1" />
+          <End Type="DemiralModel.Attach" Role="Attach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Information">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attach">
+              <PropertyRef Name="InformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attach_RFQ">
+          <End Type="DemiralModel.RFQ" Role="RFQ" Multiplicity="0..1" />
+          <End Type="DemiralModel.Attach" Role="Attach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFQ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attach">
+              <PropertyRef Name="RFQId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buy_Sell_Buyer">
+          <End Type="DemiralModel.Buyer" Role="Buyer" Multiplicity="0..1" />
+          <End Type="DemiralModel.Buy_Sell" Role="Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buy_Sell_Product">
+          <End Type="DemiralModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="DemiralModel.Buy_Sell" Role="Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Buy_Sell">
+          <End Type="DemiralModel.Buy_Sell" Role="Buy_Sell" Multiplicity="1" />
+          <End Type="DemiralModel.Payment" Role="Payment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Buy_Sell">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buyer_Customer">
+          <End Type="DemiralModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="DemiralModel.Buyer" Role="Buyer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Buyer">
+          <End Type="DemiralModel.Buyer" Role="Buyer" Multiplicity="0..1" />
+          <End Type="DemiralModel.Chat" Role="Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Buyer">
+          <End Type="DemiralModel.Buyer" Role="Buyer" Multiplicity="0..1" />
+          <End Type="DemiralModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RFQ_Buyer">
+          <End Type="DemiralModel.Buyer" Role="Buyer" Multiplicity="0..1" />
+          <End Type="DemiralModel.RFQ" Role="RFQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RFQ">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Category">
+          <End Type="DemiralModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="DemiralModel.Category" Role="Category1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Type="DemiralModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="DemiralModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RFQ_Category">
+          <End Type="DemiralModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="DemiralModel.RFQ" Role="RFQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RFQ">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_Category">
+          <End Type="DemiralModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="DemiralModel.Specification" Role="Specification" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Order">
+          <End Type="DemiralModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="DemiralModel.Chat" Role="Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Seller">
+          <End Type="DemiralModel.Seller" Role="Seller" Multiplicity="0..1" />
+          <End Type="DemiralModel.Chat" Role="Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="SellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seller_Customer">
+          <End Type="DemiralModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="DemiralModel.Seller" Role="Seller" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Seller">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_RFQ">
+          <End Type="DemiralModel.RFQ" Role="RFQ" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DemiralModel.Image" Role="Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFQ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="RFQId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Information_Product">
+          <End Type="DemiralModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="DemiralModel.Information" Role="Information" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Information">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product">
+          <End Type="DemiralModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="DemiralModel.Order" Role="Order" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Seller">
+          <End Type="DemiralModel.Seller" Role="Seller" Multiplicity="0..1" />
+          <End Type="DemiralModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="SellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Order">
+          <End Type="DemiralModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="DemiralModel.Payment" Role="Payment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PossibleValue_Specification">
+          <End Type="DemiralModel.Specification" Role="Specification" Multiplicity="0..1" />
+          <End Type="DemiralModel.PossibleValue" Role="PossibleValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specification">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PossibleValue">
+              <PropertyRef Name="SpecificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Value_PossibleValue">
+          <End Type="DemiralModel.PossibleValue" Role="PossibleValue" Multiplicity="1" />
+          <End Type="DemiralModel.Value" Role="Value" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PossibleValue">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Value">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Shop">
+          <End Type="DemiralModel.Shop" Role="Shop" Multiplicity="0..1" />
+          <End Type="DemiralModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Value_Product">
+          <End Type="DemiralModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="DemiralModel.Value" Role="Value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Value">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Seller">
+          <End Type="DemiralModel.Seller" Role="Seller" Multiplicity="1" />
+          <End Type="DemiralModel.Shop" Role="Shop" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="DemiralModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="DemiralModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="Rfq_Search_Result">
+          <Property Type="String" Name="Name" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="QuantityUnit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categories" Relationship="DemiralModel.FK_Category_QuantityUnit" FromRole="QuantityUnit" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_Category_QuantityUnit">
+          <End Type="DemiralModel.QuantityUnit" Role="QuantityUnit" Multiplicity="0..1" />
+          <End Type="DemiralModel.Category" Role="Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuantityUnit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="QuantityUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DemiralModelStoreContainer" CdmEntityContainer="DemiralEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DemiralModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DemiralModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DemiralModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DemiralModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DemiralModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attaches">
+            <EntityTypeMapping TypeName="DemiralModel.Attach">
+              <MappingFragment StoreEntitySet="Attach">
+                <ScalarProperty Name="RFQId" ColumnName="RFQId" />
+                <ScalarProperty Name="InformationId" ColumnName="InformationId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buy_Sell">
+            <EntityTypeMapping TypeName="DemiralModel.Buy_Sell">
+              <MappingFragment StoreEntitySet="Buy_Sell">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buyers">
+            <EntityTypeMapping TypeName="DemiralModel.Buyer">
+              <MappingFragment StoreEntitySet="Buyer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DemiralModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="QuantityUnitId" ColumnName="QuantityUnitId" />
+                <ScalarProperty Name="template" ColumnName="template" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+                <ScalarProperty Name="onHoverIcon" ColumnName="onHoverIcon" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="InMyMarkets" ColumnName="InMyMarkets" />
+                <ScalarProperty Name="Row" ColumnName="Row" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chats">
+            <EntityTypeMapping TypeName="DemiralModel.Chat">
+              <MappingFragment StoreEntitySet="Chat">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DemiralModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="DemiralModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="RFQId" ColumnName="RFQId" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Information">
+            <EntityTypeMapping TypeName="DemiralModel.Information">
+              <MappingFragment StoreEntitySet="Information">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="DemiralModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="DemiralModel.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SysName" ColumnName="SysName" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="DemiralModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PossibleValues">
+            <EntityTypeMapping TypeName="DemiralModel.PossibleValue">
+              <MappingFragment StoreEntitySet="PossibleValue">
+                <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DemiralModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFQs">
+            <EntityTypeMapping TypeName="DemiralModel.RFQ">
+              <MappingFragment StoreEntitySet="RFQ">
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="DestinationPort" ColumnName="DestinationPort" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ShippingMethod" ColumnName="ShippingMethod" />
+                <ScalarProperty Name="PreferedUnitPrice" ColumnName="PreferedUnitPrice" />
+                <ScalarProperty Name="Pices" ColumnName="Pices" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="UrgentRequest" ColumnName="UrgentRequest" />
+                <ScalarProperty Name="ExtraQoutes" ColumnName="ExtraQoutes" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sellers">
+            <EntityTypeMapping TypeName="DemiralModel.Seller">
+              <MappingFragment StoreEntitySet="Seller">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="DemiralModel.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specifications">
+            <EntityTypeMapping TypeName="DemiralModel.Specification">
+              <MappingFragment StoreEntitySet="Specification">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DemiralModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Values">
+            <EntityTypeMapping TypeName="DemiralModel.Value">
+              <MappingFragment StoreEntitySet="Value">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DemiralModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="Rfq_Search" FunctionName="DemiralModel.Store.Rfq_Search">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DemiralModel.Rfq_Search_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="QuantityUnits">
+            <EntityTypeMapping TypeName="DemiralModel.QuantityUnit">
+              <MappingFragment StoreEntitySet="QuantityUnit">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+
+    <div class="row">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </div><br />
+        <div><a href="javascript:document.getElementById('logoutForm').submit()">خروچ</a></div>
+        <br />
+        }
+    </div>
+}
+else
+{
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#bhome">ورود</a></li>
+        <li><a data-toggle="tab" href="#bmenu1">ثبت نام</a></li>
+    </ul>
+    <style>
+        .tab-content{
+            text-align:center;
+        }
+    </style>
+    <div class="tab-content">
+        <div id="bhome" class="tab-pane fade in active">
+
+            @Html.Partial("~/Views/Shared/Login - Partial.cshtml")
+        </div>
+        <div id="bmenu1" class="tab-pane fade">
+            @Html.Partial("~/Views/Shared/Register - Partial.cshtml")
+        </div>
+
+    </div>
+}
+
+
+
+

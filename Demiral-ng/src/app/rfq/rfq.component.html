@@ -1,0 +1,125 @@
+<div class="back">
+  <div class="container" style="background-color: white">
+
+    <div class="row">
+      <h2 style="text-align: right">به تامین کننده های کالا بگویید چه لازم دارید !؟</h2>
+      <hr>
+      <div class="col-md-6">
+
+
+        <div class="row services">
+          <p>
+            جزئیات و خصوصیات پیشنهادی زیر برای محصول انتخاب شده میتواند راهنمای خوبی برای فروشندگان جهت یافتن
+            کالای درخواستی شما باشد.
+            <a  style="color: blue !important;" class="addtemp" (click)="insertTemplate()"><b>اضافه نمودن خصوصیت ها</b></a>
+
+          </p>
+          <p>
+            {{template}}
+          </p>
+        </div>
+        <hr>
+
+
+        <p>خرید بدون واسطه ، قیمت گذاری </p>
+
+        <p class="hos qouteAd" style="float: left;margin-top: 20px">
+
+
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <a> ثبت در خواست خرید</a>
+          <i aria-hidden="true" class="fa fa-angle-left"></i>
+          <i aria-hidden="true" class="fa fa-hand-o-up "></i><a>بررسی پیشنهاد های فروش</a>
+          <i aria-hidden="true" class="fa fa-angle-left"></i>
+          <i aria-hidden="true" class="fa fa-trophy"></i>
+          <a> ارتباط با تامین کننده کالا</a>
+        </p>
+
+
+      </div>
+      <div class="col-md-6">
+
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">کالای مورد نیاز را انتخاب کنید :</label>
+            <p-autoComplete field="name" (onFocus)="search('')" [suggestions]="categories"
+                            (completeMethod)="search($event)" [delay]="0"
+                            (onSelect)="selectCategory($event)" [dropdown]="true"
+                            placeholder="چیزی بنویسید ، نام کالا ، مثال : موبایل ">
+              <ng-template let-value pTemplate="selectedItem">
+                <span style="font-size:18px">>{{value}}<</span>
+              </ng-template>
+            </p-autoComplete>
+
+          </div>
+          <div class="col-md-12 form-group">
+            <label for="exampleFormControlInput1">تعداد :</label>
+            <div style="display: flex;">
+              <input class="form-control ">
+              <select class="form-control " style="width: 30% !important;">
+                <option>چه تعداد</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 form-group">
+            <textarea class="form-control " rows="10" style="font-size: 13px">
+              وقت بخیر آقای/ خانم:
+              اینجانب دنبال کالاهایی با خصوصیت های زیر هستم:
+
+
+            </textarea>
+          </div>
+          <label style="color:#A0A2AD"></label>
+          <div class="col-md-12 form-group">
+            <image-upload
+              [max]="20"
+              [buttonCaption]="'انتخاب عکس ها'"
+              [dropBoxMessage]="'عکس هارا اینجا بیاندازید!'"
+              [extensions]="['jpg','png','gif']">
+              <!--  (removed)="onRemoved($event)"
+                (uploadFinished)="onUploadFinished($event)"
+                (uploadStateChanged)="onUploadStateChanged($event)"-->
+            </image-upload>
+
+            <p class="hos" style="font-size: 11px;">
+
+              تصاویر کالای درخواستی بهمراه توضیحات به تامین کنندگان ارسال می شود تا محصولات خود را ارائه دهند
+              <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+
+            </p>
+          </div>
+          <hr style="height: 50px;">
+          <div class="row services" style="border: 1px dotted powderblue;
+    border-radius: 20px 20px 20px 20px;
+    padding: 20px;">
+            <h3 style="width: 100%;"><b>سرویس های دیگر</b></h3>
+            <p class="p">سرویس های زیر را برای درخواست خرید های فوری و پیشنهاد قیمت های زیاد از طرف تامین کنندگان انتخاب
+              کنید </p>
+            <p><a>درخواست های فوری</a> در اولیت هستند </p>
+            <p> من با <a>قوانین و مقررات</a> آشنا بوده و میپذیرم </p>
+
+            <div *ngFor="let v of valueAddedServices" class="panel panel-default " (click)="select(v)"
+                 [style.background-color]="v.selected ? 'aliceblue' :null">
+              <div class="panel-body">{{v.name}} <span style="font-size: 10">{{v.description}} </span></div>
+            </div>
+
+
+            <input type="checkbox" id="conditions">
+            <label for="conditions"><a>قوانین و مقررات</a> خرید و فروش سایت را میپذیرم</label>
+            <hr>
+            <button type="submit" class="btn btn-primary">ثبت</button>
+
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+

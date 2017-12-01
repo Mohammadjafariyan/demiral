@@ -1,0 +1,13 @@
+:host >>> a:hover{
+  text-decoration: none;
+
+}
+
+
+:host >>>
+@media only screen and (max-width: 500px) {
+  :host >>>.hos{
+    display: none ;
+  }
+
+}
